@@ -1,8 +1,16 @@
-console.log(Function.prototype.__proto__===Object.prototype);
-console.log(Object.prototype.__proto__===null);
-var a=function(){};
-var b={};
-console.log(a.__proto__===Function.prototype);
-console.log(b.__proto__===Object.prototype);
-console.log("a".__proto__===String.prototype);
-console.log(false.__proto__===Boolean.prototype);
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+function twoSum(nums, target) {
+    let pair = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        let num = nums[i];
+
+        if (num in pair) return [pair[num], i];
+
+        pair[target - num] = i;
+    }
+}
