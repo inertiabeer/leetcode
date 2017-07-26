@@ -12,5 +12,6 @@ function twoSum(nums, target) {
         if (num in pair) return [pair[num], i];
 
         pair[target - num] = i;
+        // 利用ｈａｓｈ表，遍历发现如果已经存在相加为ｔａｒｇｅｔ的，就直接ｒｅｔｕｒｎ
     }
 }

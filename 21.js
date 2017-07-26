@@ -54,3 +54,23 @@ var mergeTwoLists = function(l1, l2) {
 
 
 };
+//分界线，这是我写的，就是一个一个的遍历，还要自己新建节点
+//这是最快的那一个的，只需要一个新节点
+var mergeTwoLists = function(l1, l2) {
+    if(l2==null) return l1;
+    if(l1==null) return l2;
+    var newList=new ListNode(0);
+    var crt=newList;
+    while(l1 && l2){
+        if(l1.val > l2.val){
+            crt.next=l2;
+            l2=l2.next;
+        }else{
+            crt.next=l1;
+            l1=l1.next;
+        }
+        crt=crt.next;
+    }
+    crt.next = l1 || l2;
+    return newList.next;
+};
