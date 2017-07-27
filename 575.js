@@ -1,29 +1,14 @@
 /**
- * @param {number[]} nums
+ * @param {number[]} candies　equally in number　maximum number of kinds
  * @return {number}
  */
-Array.prototype.mysort=function(fn)
-{
-  for(let i=0;i<this.length-1;i++)
-  {
-      for(let j=i+1;j<this.length;j++)
-      {
-          if(fn(this[i],this[j])>0)
-          {
-              temp=this[i];
-              this[i]=this[j];
-              this[j]=temp;
-          }
-      }
-  }
-};
 Array.prototype.quicksort=function()
 {
     function sub_sort(arr,i,j)
     {
         var left=i;
         var right=j;
-        if(j-i<1)
+        if(j-i<=1)
         {
             return ;
         }
@@ -58,25 +43,25 @@ Array.prototype.quicksort=function()
     }
     sub_sort(this,0,this.length-1);
 }
-var arr=[6,3,2,9,7,5,6];
-arr.quicksort();
-console.log(arr);
-function fn(a,b)
-{
-    return a-b;
-}
-var arrayPairSum = function(nums) {
-    function fn(a,b)
+var distributeCandies = function(candies) {
+    var single={};
+    var count=0;
+    for(var i=0;i<candies.length;i++)
     {
-        return a-b;
-    }
-    nums.mysort(fn);
-    var result=0;
-    for(var i=0;i<nums.length;i=i+2)
-    {
-        result=result+nums[i];
+        if(!(candies[i] in single))
+        {
+            single[candies[i]]=1;
+            count++;
+        }
+        else
+        {
 
+        }
+        if(count==candies.length/2)
+        {
+            return count;
+        }
     }
-    return result;
-
+    return count;
 };
+console.log(distributeCandies([1,1,2,2,3,3]));

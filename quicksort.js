@@ -12,7 +12,7 @@ var quickSort = function(arr) {
         arr[i] > pivot ? right.push(arr[i]) : left.push(arr[i]);
     }
 
-    return quickSort(left).concat([pivot], quickSort(right));
+    return quickSort(left).concat([pivot], quickSort(right));//但是这个其实是很不好用的
 
 };
 console.log(quickSort([1,2,4,5,10,6,7,4,5]));
