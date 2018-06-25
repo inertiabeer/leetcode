@@ -39,7 +39,7 @@ var maxIncreaseKeepingSkyline = function (grid) {
             }
         }
     }
-    console.log(result);
+    return result;
     
 };
 maxIncreaseKeepingSkyline([[8, 4, 8, 7],
